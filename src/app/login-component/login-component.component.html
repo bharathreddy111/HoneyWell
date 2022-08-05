@@ -1,0 +1,27 @@
+
+<h1 >Movie Ticket Application</h1>
+<span *ngIf="loginpage">
+<label>User name:</label>
+<input type="text" id="username" [(ngModel)]="username"><br><br>
+<label >Password:</label>
+<input type="text" id="password" [(ngModel)]="password"><br><br>
+<button (click)="userLogin()">Submit</button>
+</span>
+<span *ngIf="homepage">
+<span *ngFor="let movie of movieslist">
+    <button (click)="selectedMovie(movie)">{{movie.name}}</button><br><br>
+
+</span>
+
+</span>
+<span *ngIf="bookingPage">
+    <span *ngFor="let seat of availableseats">
+        <label>
+            <input type="checkbox" [value]="seat" (change)="changeSeat(seat)" />
+            {{seat}}
+          </label>
+    
+    </span>
+    <button (click)="selectedSeats()">Confirm</button><br><br>
+    
+    </span>
